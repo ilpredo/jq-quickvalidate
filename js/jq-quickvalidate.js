@@ -76,6 +76,10 @@
                 regex: /^\d{5}$|^\d{5}-\d{4}$/,
                 error: 'Must be a valid US zip code. (e.g. 33245 or 33245-0003)'
             },
+            url: {
+                regex: /^(?:(ftp|http|https):\/\/)?(?:[\w-]+\.)+[a-z]{3,6}$/i,
+                error: 'Must be a valid URL. (e.g. www.google.com)'
+            },
             date: {
                 regex: function (value) {
                     var match = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(value),
