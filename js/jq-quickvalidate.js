@@ -16,7 +16,10 @@
     
         // Default options
         var o = $.extend({
-            onSubmit: function () {
+            onSuccess: function () {
+                alert('Thank you...');
+            },
+            onFail: function () {
                 // What happens on submit if the form
                 // does NOT validate.
                 alert('The form does not validate! Check again...');
@@ -178,7 +181,9 @@
         $form.submit(function (e) {
             if ($form.find('input.invalid').length) {
                 e.preventDefault();
-                o.onSubmit();
+                o.onFail();
+            } else {
+                o.onSuccess()
             }
         });
         return this;

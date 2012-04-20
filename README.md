@@ -41,9 +41,11 @@ You may use the `required` filter plus ONE other filter from the list.
     $('#my-form').quickValidate({
         speed: 'fast' // Popup fade speed
         easing: 'linear' // Popup easing (requires easing plugin)
-        onSubmit: function(){
-            // What happens when the user submits
-            // the form and does NOT validate
+        onFail: function(){
+            // On submit if form does NOT validate
+        },
+        onSuccess: function(){
+            // On submit if form validates
         },
         filters: {
             // Add new filters or overwrite the default 
