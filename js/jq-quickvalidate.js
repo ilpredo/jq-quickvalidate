@@ -80,7 +80,7 @@
                 error: 'Must be a valid US zip code. (e.g. 33245 or 33245-0003)'
             },
             url: {
-                regex: /^(?:(ftp|http|https):\/\/)?(?:[\w-]+\.)+[a-z]{3,6}$/i,
+                regex: /^(?:(ftp|http|https):\/\/)?(?:[\w\-]+\.)+[a-z]{3,6}$/i,
                 error: 'Must be a valid URL. (e.g. www.google.com)'
             },
             date: {
@@ -183,7 +183,7 @@
                 e.preventDefault();
                 o.onFail();
             } else {
-                o.onSuccess()
+                o.onSuccess();
             }
         });
         return this;
