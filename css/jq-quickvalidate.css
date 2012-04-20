@@ -1,0 +1,68 @@
+/* --------------------------------------------------------
+
+    jq-quickvalidate 1.1
+    
+    * Author: Cedric Ruiz
+    * License: GPLv2
+    * Website: http://code.google.com/p/jq-quickvalidate/
+    
+-------------------------------------------------------- */
+
+#my-form p {
+    float: left;
+    clear: both;
+    position: relative;
+    margin: .5em 0;
+}
+#my-form label, 
+#my-form input { display: inline-block; }
+#my-form label { width: 100px; }
+#my-form label span { color: red; }
+#my-form input[type="text"],
+#my-form input[type="password"] {
+    padding: 0 .3em;
+    height: 24px;
+    line-height: 24px;
+    width: 200px;
+    border: 1px solid #ccc;
+}
+#my-form .valid-icon,
+#my-form .error-icon {
+    position: absolute;
+    top: 4px;
+    right: -24px;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+#my-form .valid-icon {
+    background: url(../img/ok.png) no-repeat;
+    cursor: default;
+}
+#my-form .error-icon {
+    background: url(../img/info.png) no-repeat;
+}
+#my-form input.invalid {
+    background: #FFFAC4;
+}
+#my-form .error {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: -185px;
+    z-index: 999;
+    padding: 10px;
+    width: 120px;
+    font-size: 12px;
+    background: #222;
+    color: white;
+}
+#my-form .error:after { /* Popup arrow */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent #222 transparent transparent;
+}

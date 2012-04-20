@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>jq-quickvalidate</title>
+<link href="css/normalize.css" rel="stylesheet"/>
+<link href="css/jq-quickvalidate.css" rel="stylesheet" media="screen"/>
+<link href="css/styles.css" rel="stylesheet" media="screen"/>
+</head>
+<body>
+
+<h1>QuickValidate:</h1>
+<h2>A small and extensible jQuery validation plugin</h2>
+
+<form id="my-form">
+    <p><label>Name <span>*</span>:</label><input type="text" class="required name"/></p>
+    <p><label>Password <span>*</span>:</label><input type="password" class="required pass"/></p>
+    <p><label>E-Mail:</label><input type="text" class="email"/></p>
+    <p><label>Phone:</label><input type="text" class="phone" placeholder="000-000-0000"/></p>
+    <p><label>Date:</label><input type="text" class="date" placeholder="mm/dd/yyyy"/></p>
+    <p><label>&nbsp;</label><button type="submit">Submit</button></p>
+    <div style="clear: both;"></div>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="js/jq-quickvalidate.js"></script>
+<script>
+    var $form = $('#my-form');
+    $form.quickValidate({
+        onSubmit: function(){
+            var message = 'Please review the form again, there are some fields that don\'t validate. Make sure to fill in all required inputs.';
+            $form.siblings('.invalid-submit').remove();
+            $('<p class="invalid-submit">'+ message +'<span class="close-icon"></span></p>').find('.close-icon').click(function(){
+                $(this).parent().remove();
+            }).end().insertAfter($form);
+        },
+        filters: {
+            custom: {
+                regex: /hello world/i,
+                error: 'Must be "hello world".'
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
