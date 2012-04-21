@@ -2,12 +2,13 @@
 
 A small & extensible jQuery validation plugin.
 
-**Demo:** http://jsfiddle.net/elclanrs/ZsS2D/
+**Demo:** [jsfiddle](http://jsfiddle.net/elclanrs/ZsS2D/embedded/result/)  
+**Tested:** IE8+, Webkit, Firefox 3.6+, Opera 11+
 
 * * *
 
 
-# How to use quickValidate:
+# How to use jq-quickvalidate:
 
 Load the latest [jQuery library](http://jquery.com), the `jq-quickvalidate.js` plugin and the `jq-quickvalidate.css` stylesheet into your project as well as the [`normalize.css`](http://necolas.github.com/normalize.css/) reset. Feel free to customize the CSS to your needs if you need to adjust the layout.
 
@@ -58,14 +59,13 @@ $('#my-form').quickValidate({
             error: 'Custom error message.'
         }
         another: {
-            // `regex` also takes a function
-            // with the input's `value` as only
-            // parameter. The function must
-            // return a boolean or falsy value
+            // `regex` also takes a function:
+            // function(value) { return @boolean }
             regex: function(value){
                 var re = /hello world/i;
-                return re.test(value); // returns boolean
-            }
+                return re.test(value);
+            },
+            error: 'another error'
         }
     }
 });

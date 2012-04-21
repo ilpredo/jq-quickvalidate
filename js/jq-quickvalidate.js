@@ -16,7 +16,7 @@
     
         // Default options
         var o = $.extend({
-            onSuccess: function () 
+            onSuccess: function () {
                 alert('Thank you...');
             },
             onFail: function () {
@@ -89,7 +89,7 @@
                         isDate = function (m, d, y) {
                             return m > 0 && m < 13 && y > 0 && y < 32768 && d > 0 && d <= (new Date(y, m, 0)).getDate();
                         };
-                    return (match) ? isDate(match[1], match[2], match[3]) : null;
+                    return match && isDate(match[1], match[2], match[3]);
                 },
                 error: 'Must be a valid date. (e.g. mm/dd/yyyy)'
             }
