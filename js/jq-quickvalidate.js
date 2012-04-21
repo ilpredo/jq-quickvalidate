@@ -125,6 +125,7 @@
                             isValid = false;
                             error = filters[k].error;
                         }
+                        return false;
                     }
                 });
             }
