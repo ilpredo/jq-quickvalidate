@@ -16,7 +16,7 @@
     
         // Default options
         var o = $.extend({
-            onSuccess: function () {
+            onSuccess: function () 
                 alert('Thank you...');
             },
             onFail: function () {

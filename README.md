@@ -13,56 +13,60 @@ Load the latest [jQuery library](http://jquery.com), the `jq-quickvalidate.js` p
 
 ## HTML:
 
-    <form id="my-form" action="action.php" method="post">
+```html
+<form id="my-form" action="action.php" method="post">
 
-        <p><label>Name <span>*</span>:</label><input type="text" class="required name"/></p>
-        
-        ...
+    <p><label>Name <span>*</span>:</label><input type="text" class="required name"/></p>
+    
+    ...
 
-    </form>
+</form>
+```
       
 **Default filters:**
 
 You may use the `required` filter plus ONE other filter from the list. 
 
-+   required
-+   number
-+   name
-+   username
-+   pass
-+   strongpass
-+   email
-+   phone
-+   zip
-+   date
+* required
+* number
+* name
+* username
+* pass
+* strongpass
+* email
+* phone
+* zip
+* date
 
 ## JavaScript:
 
-    $('#my-form').quickValidate({
-        speed: 'fast' // Popup fade speed
-        easing: 'linear' // Popup easing (requires easing plugin)
-        onFail: function(){
-            // On submit if form does NOT validate
-        },
-        onSuccess: function(){
-            // On submit if form validates
-        },
-        filters: {
-            // Add new filters or overwrite the default 
-            // ones following this pattern
-            custom: {
-                regex: /something/,
-                error: 'Custom error message.'
-            }
-            another: {
-                // `regex` also takes a function
-                // with the input's `value` as only
-                // parameter. The function must
-                // return a boolean or falsy value
-                regex: function(value){
-                    var re = /hello world/i;
-                    return re.test(value); // returns boolean
-                }
+```javascript
+$('#my-form').quickValidate({
+    speed: 'fast' // Popup fade speed
+    easing: 'linear' // Popup easing (requires easing plugin)
+    onFail: function(){
+        // On submit if form does NOT validate
+    },
+    onSuccess: function(){
+        // On submit if form validates
+    },
+    filters: {
+        // Add new filters or overwrite the default 
+        // ones following this pattern
+        custom: {
+            regex: /something/,
+            error: 'Custom error message.'
+        }
+        another: {
+            // `regex` also takes a function
+            // with the input's `value` as only
+            // parameter. The function must
+            // return a boolean or falsy value
+            regex: function(value){
+                var re = /hello world/i;
+                return re.test(value); // returns boolean
             }
         }
-    });
+    }
+});
+```
