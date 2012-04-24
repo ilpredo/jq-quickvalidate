@@ -118,7 +118,9 @@
                 $.each(klass, function (i, k) {
                     if (filters[k]) {
                         if (
-                        typeof filters[k].regex === 'function' && !filters[k].regex(value) || filters[k].regex instanceof RegExp && !filters[k].regex.test(value)) {
+                            typeof filters[k].regex === 'function' && !filters[k].regex(value) || 
+                            filters[k].regex instanceof RegExp && !filters[k].regex.test(value)
+                        ) {
                             isValid = false;
                             error = filters[k].error;
                         }
