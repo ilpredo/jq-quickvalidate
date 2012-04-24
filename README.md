@@ -17,12 +17,14 @@ Load the latest [jQuery library](http://jquery.com), the `jq-quickvalidate.js` p
 ```html
 <form id="my-form" action="action.php" method="post">
 
-    <p><label>Name <span>*</span>:</label><input type="text" class="required name"/></p>
+    <p><label>Date: <span>*</span>:</label><input type="text" placeholder="mm/dd/yy" class="required date"/></p>
     
     ...
 
 </form>
 ```
+
+**jq-quickvalidate** adds support for `placeholder` in browsers that don't support this feature.
       
 **Default filters:**
 
